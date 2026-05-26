@@ -695,3 +695,287 @@ The future of field operations is:
 * AI-assisted workforce management
 
 FIELDO aims to power that future.
+
+## Project Structure
+
+FIELDO/
+│
+├── apps/
+│   │
+│   ├── web/                         # Dispatcher dashboard (Next.js)
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── modules/
+│   │   │   ├── hooks/
+│   │   │   ├── services/
+│   │   │   ├── store/
+│   │   │   ├── lib/
+│   │   │   ├── utils/
+│   │   │   ├── styles/
+│   │   │   ├── providers/
+│   │   │   ├── config/
+│   │   │   └── types/
+│   │   │
+│   │   ├── public/
+│   │   ├── tests/
+│   │   ├── package.json
+│   │   └── next.config.js
+│   │
+│   ├── mobile/                      # Technician mobile app
+│   │   ├── src/
+│   │   │   ├── screens/
+│   │   │   ├── components/
+│   │   │   ├── services/
+│   │   │   ├── hooks/
+│   │   │   ├── navigation/
+│   │   │   ├── store/
+│   │   │   ├── utils/
+│   │   │   ├── config/
+│   │   │   └── types/
+│   │   │
+│   │   ├── android/
+│   │   ├── ios/
+│   │   ├── package.json
+│   │   └── app.json
+│   │
+│   └── admin/                       # Internal admin panel
+│       ├── src/
+│       └── package.json
+│
+├── services/
+│   │
+│   ├── api-gateway/                 # Main gateway
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── middleware/
+│   │   │   ├── auth/
+│   │   │   ├── validators/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   ├── dto/
+│   │   │   ├── utils/
+│   │   │   ├── config/
+│   │   │   └── index.ts
+│   │   │
+│   │   ├── tests/
+│   │   └── package.json
+│   │
+│   ├── auth-service/
+│   │   ├── src/
+│   │   │   ├── jwt/
+│   │   │   ├── oauth/
+│   │   │   ├── permissions/
+│   │   │   ├── sessions/
+│   │   │   └── controllers/
+│   │   └── package.json
+│   │
+│   ├── dispatch-service/            # CORE BUSINESS LOGIC
+│   │   ├── src/
+│   │   │   ├── engine/
+│   │   │   │   ├── assignment/
+│   │   │   │   ├── scheduling/
+│   │   │   │   ├── routing/
+│   │   │   │   ├── scoring/
+│   │   │   │   └── optimization/
+│   │   │   │
+│   │   │   ├── jobs/
+│   │   │   ├── technicians/
+│   │   │   ├── customers/
+│   │   │   ├── events/
+│   │   │   ├── repositories/
+│   │   │   ├── queues/
+│   │   │   ├── workers/
+│   │   │   ├── websocket/
+│   │   │   ├── metrics/
+│   │   │   ├── utils/
+│   │   │   └── config/
+│   │   │
+│   │   └── package.json
+│   │
+│   ├── ai-service/
+│   │   ├── src/
+│   │   │   ├── models/
+│   │   │   │   ├── duration_prediction/
+│   │   │   │   ├── callback_prediction/
+│   │   │   │   ├── skill_matching/
+│   │   │   │   ├── demand_forecasting/
+│   │   │   │   └── route_eta/
+│   │   │   │
+│   │   │   ├── training/
+│   │   │   ├── inference/
+│   │   │   ├── pipelines/
+│   │   │   ├── feature_store/
+│   │   │   ├── embeddings/
+│   │   │   ├── vector_search/
+│   │   │   ├── prompts/
+│   │   │   ├── llm/
+│   │   │   ├── evaluation/
+│   │   │   ├── datasets/
+│   │   │   ├── notebooks/
+│   │   │   └── utils/
+│   │   │
+│   │   ├── models/
+│   │   └── requirements.txt
+│   │
+│   ├── notification-service/
+│   │   ├── src/
+│   │   │   ├── whatsapp/
+│   │   │   ├── sms/
+│   │   │   ├── email/
+│   │   │   ├── push/
+│   │   │   ├── templates/
+│   │   │   └── workers/
+│   │   └── package.json
+│   │
+│   ├── realtime-service/
+│   │   ├── src/
+│   │   │   ├── sockets/
+│   │   │   ├── streams/
+│   │   │   ├── tracking/
+│   │   │   ├── redis/
+│   │   │   └── presence/
+│   │   └── package.json
+│   │
+│   ├── billing-service/
+│   │   ├── src/
+│   │   │   ├── subscriptions/
+│   │   │   ├── invoices/
+│   │   │   ├── payments/
+│   │   │   ├── usage/
+│   │   │   └── webhooks/
+│   │   └── package.json
+│   │
+│   ├── analytics-service/
+│   │   ├── src/
+│   │   │   ├── dashboards/
+│   │   │   ├── warehouse/
+│   │   │   ├── reports/
+│   │   │   ├── aggregations/
+│   │   │   ├── event-processing/
+│   │   │   └── metrics/
+│   │   └── package.json
+│   │
+│   └── integration-service/
+│       ├── src/
+│       │   ├── quickbooks/
+│       │   ├── google_maps/
+│       │   ├── whatsapp/
+│       │   ├── stripe/
+│       │   ├── twilio/
+│       │   └── webhooks/
+│       └── package.json
+│
+├── packages/
+│   │
+│   ├── ui/                          # Shared UI components
+│   ├── types/                       # Shared TS types
+│   ├── eslint-config/
+│   ├── tsconfig/
+│   ├── logger/
+│   ├── event-sdk/
+│   ├── auth-sdk/
+│   ├── api-client/
+│   ├── constants/
+│   └── utils/
+│
+├── infrastructure/
+│   │
+│   ├── docker/
+│   │   ├── api/
+│   │   ├── ai/
+│   │   ├── postgres/
+│   │   ├── redis/
+│   │   ├── nginx/
+│   │   └── monitoring/
+│   │
+│   ├── kubernetes/
+│   │   ├── staging/
+│   │   ├── production/
+│   │   ├── ingress/
+│   │   ├── secrets/
+│   │   └── autoscaling/
+│   │
+│   ├── terraform/
+│   │   ├── aws/
+│   │   ├── networking/
+│   │   ├── databases/
+│   │   ├── queues/
+│   │   ├── storage/
+│   │   └── monitoring/
+│   │
+│   ├── nginx/
+│   └── scripts/
+│
+├── databases/
+│   │
+│   ├── postgres/
+│   │   ├── migrations/
+│   │   ├── seeds/
+│   │   ├── schemas/
+│   │   ├── functions/
+│   │   └── triggers/
+│   │
+│   ├── redis/
+│   ├── clickhouse/
+│   └── vector-db/
+│
+├── event-bus/
+│   │
+│   ├── kafka/
+│   ├── topics/
+│   ├── consumers/
+│   ├── producers/
+│   └── schemas/
+│
+├── observability/
+│   │
+│   ├── prometheus/
+│   ├── grafana/
+│   ├── loki/
+│   ├── opentelemetry/
+│   ├── alerts/
+│   └── dashboards/
+│
+├── security/
+│   │
+│   ├── policies/
+│   ├── encryption/
+│   ├── audit/
+│   ├── secrets/
+│   └── compliance/
+│
+├── docs/
+│   │
+│   ├── architecture/
+│   ├── api/
+│   ├── product/
+│   ├── ai/
+│   ├── workflows/
+│   ├── onboarding/
+│   └── runbooks/
+│
+├── .github/
+│   │
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── cd.yml
+│   │   ├── tests.yml
+│   │   ├── security.yml
+│   │   └── deploy.yml
+│   │
+│   └── ISSUE_TEMPLATE/
+│
+├── tools/
+│   ├── scripts/
+│   ├── generators/
+│   └── migrations/
+│
+├── .env
+├── .env.production
+├── docker-compose.yml
+├── turbo.json
+├── pnpm-workspace.yaml
+├── package.json
+├── README.md
+└── Makefile
