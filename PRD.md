@@ -54,15 +54,6 @@
 
 The name is short (6 letters), easy to spell in Hindi and English, works as a domain (`fieldo.in`, `fieldo.app`), and feels like a tool — not a corporate product. When an HVAC owner tells his friend "Use Fieldo bhai," it sounds natural.
 
-### Rejected Names & Why
-
-| Name | Rejected Because |
-|---|---|
-| DispatchIQ | Too corporate, hard to say in Hindi |
-| TradeFlow | Generic, sounds like a fintech |
-| Kaamkar | Good Hindi but limits global expansion |
-| TechDispatch | Confused with "technology company" |
-| ServiceBuddy | Sounds like a customer app, not B2B |
 
 ### Brand Personality
 
